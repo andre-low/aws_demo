@@ -1,0 +1,70 @@
+{
+  "jobName": "transcription_job_1d9026",
+  "accountId": "623745312903",
+  "results": {
+    "transcripts": [
+      { "transcript": "Take one tablet of aspirin once every six hours." }
+    ],
+    "items": [
+      {
+        "start_time": "0.0",
+        "end_time": "0.3",
+        "alternatives": [{ "confidence": "0.9992", "content": "Take" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "0.31",
+        "end_time": "0.52",
+        "alternatives": [{ "confidence": "1.0", "content": "one" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "0.53",
+        "end_time": "0.96",
+        "alternatives": [{ "confidence": "0.9979", "content": "tablet" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "0.96",
+        "end_time": "1.1",
+        "alternatives": [{ "confidence": "0.998", "content": "of" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "1.1",
+        "end_time": "1.6",
+        "alternatives": [{ "confidence": "0.9924", "content": "aspirin" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "2.09",
+        "end_time": "2.38",
+        "alternatives": [{ "confidence": "1.0", "content": "once" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "2.38",
+        "end_time": "2.74",
+        "alternatives": [{ "confidence": "1.0", "content": "every" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "2.74",
+        "end_time": "3.06",
+        "alternatives": [{ "confidence": "1.0", "content": "six" }],
+        "type": "pronunciation"
+      },
+      {
+        "start_time": "3.06",
+        "end_time": "3.67",
+        "alternatives": [{ "confidence": "1.0", "content": "hours" }],
+        "type": "pronunciation"
+      },
+      {
+        "alternatives": [{ "confidence": "0.0", "content": "." }],
+        "type": "punctuation"
+      }
+    ]
+  },
+  "status": "COMPLETED"
+}
