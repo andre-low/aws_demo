@@ -1,5 +1,6 @@
 import boto3 as aws
 import time
+import json
 from secrets import token_hex
 
 # AWS setup
@@ -26,16 +27,18 @@ transcribed_response_init = transcribe.start_medical_transcription_job(
     Specialty = 'PRIMARYCARE',
     Type = 'DICTATION'
 )
-
 print(transcribed_response_init['MedicalTranscriptionJob'])
 time.sleep(30)
 
-# Get Uri of completed transcription job
+""" # Fetch complete transcription job URL
 transcribed_response_complete = transcribe.get_medical_transcription_job(
     MedicalTranscriptionJobName=transcription_job_name
 )
+print(transcribed_response_complete['MedicalTranscriptionJob']['Transcript']['TranscriptFileUri']) """
 
-print(transcribed_response_complete['MedicalTranscriptionJob']['Transcript']['TranscriptFileUri'])
+# Fetch complete transcription to file-like object
+with open('filename', 'wb') as data:
+    s3.download_fileobj('mybucket', 'mykey', data)
 
 """ # Amazon Translate
 translated_response = translate.translate_text(
@@ -43,16 +46,14 @@ translated_response = translate.translate_text(
     SourceLanguageCode='en',
     TargetLanguageCode='zh'
 )
+print(translated_response['TranslatedText']) """
 
-print(translated_response['TranslatedText'])
-
-# Amazon Polly
+""" # Amazon Polly
 speech_response = polly.synthesize_speech(
     OutputFormat = 'mp3',
     Text = translated_response['TranslatedText'],
     VoiceId = 'Zhiyu'
 )
-
 file = open('speech_response.mp3', 'wb')
 file.write(speech_response['AudioStream'].read())
 file.close() """
