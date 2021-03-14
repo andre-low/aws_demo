@@ -5,19 +5,22 @@ import json
 from secrets import token_hex
 
 
+# Variables
+s3_bucket = ''  # enter s3 bucket name here
+input_file_name = ''  # enter input audio file name here
+output_file_name = 'output.mp3' # enter output audio file name here
+
+
+# Constants
+input_audio_s3_uri = 's3://' + s3_bucket + '/' + input_file_name
+transcription_job_name = 'transcription_job_' + token_hex(3)
+
+
 # AWS setup
 s3 = aws.resource('s3')
 transcribe = aws.client('transcribe')
 translate = aws.client('translate')
 polly = aws.client('polly')
-
-
-# Variables
-s3_bucket = 'andrelow.awsdemo.transcribe'  # enter s3 bucket name here
-input_audio_file = 'input.mp3'  # enter input audio file name here
-input_audio_s3_uri = 's3://' + s3_bucket + '/' + input_audio_file
-transcription_job_name = 'transcription_job_' + token_hex(3)
-output_file_name = 'output.mp3'
 
 
 # Amazon Transcribe: start transcription job
