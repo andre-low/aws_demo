@@ -13,8 +13,8 @@ polly = aws.client('polly')
 
 
 # Variables
-s3_bucket = ''  # enter s3 bucket name here
-input_audio_file = ''  # enter input audio file name here
+s3_bucket = 'andrelow.awsdemo.transcribe'  # enter s3 bucket name here
+input_audio_file = 'input.mp3'  # enter input audio file name here
 input_audio_s3_uri = 's3://' + s3_bucket + '/' + input_audio_file
 transcription_job_name = 'transcription_job_' + token_hex(3)
 output_file_name = 'output.mp3'
@@ -77,5 +77,7 @@ speech_response = polly.synthesize_speech(
 file = open(output_file_name, 'wb')
 file.write(speech_response['AudioStream'].read())
 file.close()
+
+s3.meta.client.upload_file(output_file_name, s3_bucket, output_file_name)
 
 print('Output audio saved to: ' + output_file_name)
